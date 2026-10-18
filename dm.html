@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DM · Nikolai</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans‑serif;
+}
+body{
+  background:#000000;
+  color:#ffffff;
+  min‑height:100vh;
+  padding‑bottom:140px;
+}
+.dm‑header{
+  position:sticky;
+  top:0;
+  background:#000;
+  z‑index:10;
+  display:flex;
+  align‑items:center;
+  justify‑content:space‑between;
+  padding:14px 16px;
+  border‑bottom:1px solid #222;
+}
+.dm‑back{
+  color:#888;
+  text‑decoration:none;
+  font‑size:16px;
+}
+.dm‑profile{
+  text‑align:center;
+  flex‑grow:1;
+}
+.dm‑name{
+  font‑size:15px;
+}
+.dm‑sub{
+  font‑size:12px;
+  color:#777;
+}
+.dm‑icon{
+  width:28px;
+  opacity:0.75;
+}
+.chat‑wrap{
+  padding:20px 14px;
+}
+.chat‑date{
+  text‑align:center;
+  font‑size:12.5px;
+  color:#666;
+  margin:22px 0;
+}
+.bubble‑they{
+  max‑width:82%;
+  background:#2c2c2e;
+  color:#fff;
+  padding:11px 15px;
+  border‑radius:20px 20px 20px 4px;
+  margin‑bottom:8px;
+  font‑size:15.2px;
+  line‑height:1.55;
+}
+.bubble‑me{
+  max‑width:82%;
+  margin‑left:auto;
+  background:#0a84ff;
+  color:#fff;
+  padding:11px 15px;
+  border‑radius:20px 20px 4px 20px;
+  margin‑bottom:8px;
+  font‑size:15.2px;
+  line‑height:1.55;
+}
+.select‑area{
+  padding:10px 14px 20px;
+  display:flex;
+  flex‑direction:column;
+  gap:10px;
+}
+.select‑btn{
+  background:#1c1c1e;
+  border:1px solid #333;
+  color:#ffffff;
+  border‑radius:999px;
+  padding:12px 16px;
+  font‑size:14.5px;
+  cursor:pointer;
+  transition:0.2s;
+}
+.select‑btn:hover{
+  background:#2c2c2e;
+}
+.input‑bar{
+  position:fixed;
+  bottom:22px;
+  left:16px;
+  right:16px;
+}
+.input‑fake{
+  background:#1c1c1e;
+  border:1px solid #333;
+  border‑radius:999px;
+  padding:12px 20px;
+  color:#777;
+  font‑size:14.5px;
+}
+</style>
+</head>
+<body>
+<div class="dm‑header">
+  <a href="index.html" class="dm‑back">←</a>
+  <div class="dm‑profile">
+    <div class="dm‑name">Николai</div>
+    <div class="dm‑sub">阅读回执已开启</div>
+  </div>
+  <div class="dm‑icon">ⓘ</div>
+</div>
+
+<div class="chat‑wrap" id="chatBox">
+  <div class="chat‑date">2026‑10‑19 19:34</div>
+  <!-- 这里两条气泡文案你自行修改 -->
+  <div class="bubble‑they">
+    第一条消息，这里改成你的内容
+  </div>
+  <div class="bubble‑they">
+    第二条消息，用来写你的须知内容
+  </div>
+</div>
+
+<div class="select‑area" id="selectPanel">
+  <button class="select‑btn" data‑msg="我明白了">我明白了</button>
+  <button class="select‑btn" data‑msg="想再多了解一点">想再多了解一点</button>
+  <button class="select‑btn" data‑msg="暂时先离开">暂时先离开</button>
+</div>
+
+<div class="input‑bar">
+  <div class="input‑fake">说点什么…</div>
+</div>
+
+<script>
+const chatBox = document.getElementById('chatBox');
+const selectPanel = document.getElementById('selectPanel');
+
+const replyMap = {
+  "我明白了":"很好，希望我们可以保持真诚的相处🖤",
+  "想再多了解一点":"如果你愿意，你可以慢慢诉说你的想法，我会认真聆听。",
+  "暂时先离开":"没有关系，随时欢迎你再次回来。"
+};
+
+document.querySelectorAll('.select‑btn').forEach(btn=>{
+  btn.onclick = function(){
+    const userText = this.dataset.msg;
+    const userBubble = document.createElement('div');
+    userBubble.className = "bubble‑me";
+    userBubble.innerText = userText;
+    chatBox.appendChild(userBubble);
+    selectPanel.style.display = "none";
+    setTimeout(()=>{
+      const aiText = replyMap[userText];
+      const aiBubble = document.createElement('div');
+      aiBubble.className = "bubble‑they";
+      aiBubble.innerText = aiText;
+      chatBox.appendChild(aiBubble);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    },650);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+})
+</script>
+</body>
+</html>
