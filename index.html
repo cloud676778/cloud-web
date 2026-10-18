@@ -6,7 +6,6 @@
 <title>Home</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* 淡入浮现弹窗 */
 .dialog-mask{
   position:fixed;
   inset:0;
@@ -57,13 +56,11 @@
   font-size:15px;
   line-height:1.6;
 }
-/* 只有这个是可点击的 Follow */
 .follow-click{
   color:#ffffff;
   cursor:pointer;
   display:inline-block;
 }
-/* 其余普通文字，无点击效果 */
 .normal-text{
   color:#aaa;
   cursor:default;
@@ -82,8 +79,6 @@
 
   <div style="padding:26px 22px;">
     <div class="avatar"></div>
-    <h1>Николай</h1>
-    <!-- ✅【唯一可点击】只有这行 Follow！下面UID只是普通白色文字，不能点 -->
     <div class="follow-click" id="openDialog" style="font-size:15px;margin-bottom:4px;">Follow</div>
     <div class="username">@winter_shadows</div>
 
@@ -100,7 +95,6 @@
       📍 Saint Petersburg, Russia
     </div>
 
-    <!-- Following / Followers：全部普通文字，点不动！ -->
     <div style="margin-top:14px;font-size:14px;" class="normal-text">
       1 Following &nbsp;&nbsp; 427 Followers
     </div>
@@ -151,11 +145,9 @@
     </div>
   </div>
 
-  <!-- Follow点出来的对话弹窗 -->
   <div class="dialog-mask" id="dialogMask">
     <div class="dialog-box">
       <div class="dialog-close" id="dialogClose">✕ 关闭</div>
-
       <div class="dialog-item">
         <div class="dialog-name">— Nikolai</div>
         <div class="dialog-text">你走进了我的世界里，就不许离开。</div>
@@ -168,7 +160,6 @@
         <div class="dialog-name">— Nikolai</div>
         <div class="dialog-text">所谓爱就意味着虐待和精神上的优势。</div>
       </div>
-
     </div>
   </div>
 
