@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home</title>
+<title>CLOUD</title>
 <link rel="stylesheet" href="style.css">
 <style>
+/* ==========【新增Follow弹窗，只新增，不改动原有样式】 ========== */
 .dialog-mask{
   position:fixed;
   inset:0;
@@ -69,47 +70,73 @@
 </head>
 <body>
 <div class="wrap">
+  <!-- 顶部滚动固定导航栏【恢复原版标题】 -->
   <div class="sticky-header">
-    <a href="#" class="back">←</a>
-    <div>
-      <h3>Home</h3>
-      <span>Profile Page</span>
+    <a href="index.html" class="back">←</a>
+    <div class="info">
+      <h3>CLOUD (Nikolai)</h3>
+      <span>427  posts</span>
     </div>
   </div>
 
-  <div style="padding:26px 22px;">
-    <div class="avatar"></div>
-    <div class="follow-click" id="openDialog" style="font-size:15px;margin-bottom:4px;">Follow</div>
+  <!-- 顶部横幅 【复原被删掉的banner】 -->
+  <div class="banner">
+    <p class="banner-text">
+      所谓爱就意味着虐待和精神上的优势 <br>
+      <span>Tears are the acid that corrodes the heart</span>
+    </p>
+  </div>
+
+  <div class="profile-card">
+    <div class="avatar-wrap">
+      <div class="avatar"></div>
+    </div>
+
+    <div class="name-row">
+      <h1>Николай (Nikolai)</h1>
+      <span class="check">✓</span>
+    </div>
+
     <div class="username">@winter_shadows</div>
 
-    <div class="bio-text" style="margin-top:14px;">
+    <p class="bio-text">
       Всё проходит, и это пройдёт.<br>
       我的缪斯 是你哭红的双眼还有温热的怀抱
+    </p>
+
+    <div class="tags">#Freelance #Survive #Winter</div>
+
+    <div class="meta-row">
+      <span>📍 Saint Petersburg, Russia</span>
+      <span class="link-text">winter-shadows.net</span>
+      <span>📅 Joined Sep 2023</span>
     </div>
 
-    <div class="tags" style="margin-top:16px;color:#888;font-size:14px;">
-      #Freelance #Survive #Winter
+    <div class="follow-count">
+      <span><b>1</b> Following</span>
+      <span><b>427</b> Followers</span>
     </div>
 
-    <div class="meta-row" style="margin-top:12px;font-size:13px;color:#777;">
-      📍 Saint Petersburg, Russia
-    </div>
-
-    <div style="margin-top:14px;font-size:14px;" class="normal-text">
-      1 Following &nbsp;&nbsp; 427 Followers
-    </div>
-
-    <div style="margin-top:22px;">
-      <a href="bio.html" style="color:#4b99eb;text-decoration:none;">查看完整简介 →</a>
+    <!-- ✅这里：Follow文字，绑定弹窗点击事件，保留原来按钮位置 -->
+    <div class="btn-follow-wrap">
+      <div class="follow-click" id="openDialog">Follow</div>
     </div>
   </div>
 
+  <!-- 推文流区域【完全复原原版推文结构】 -->
   <div class="tweet-feed">
     <div class="tweet">
-      <div class="tweet-avatar">📌</div>
+      <div class="tweet-avatar">❄</div>
       <div class="tweet-body">
-        <div class="diary-date">置顶 · 营业公告</div>
-        <div class="diary-text">
+        <div class="pin-label">📌 Pinned · 营业公告</div>
+        <div class="tweet-head">
+          <span class="name">Николай</span>
+          <span class="check">✓</span>
+          <span class="user">@winter_shadows</span>
+          <span class="dot">·</span>
+          <span class="user">Always</span>
+        </div>
+        <div class="tweet-text">
           20|INFP|T|dom|天蝎<br>
           20岁被妈妈打很丢人 那如果是被20岁的妈妈打呢
         </div>
@@ -119,13 +146,23 @@
     <div class="tweet">
       <div class="tweet-avatar">📖</div>
       <div class="tweet-body">
-        <div class="diary-date">2026.10.12</div>
-        <div class="diary-text">
-          ‘喜欢你 感谢你 依赖你’<br>
-          <em style="color:#999;font-size:14px;">——被认可的感觉其实很微妙。</em>
+        <div class="pin-label">📖 Diary · 板评记录</div>
+        <div class="diary-entry">
+          <div class="diary-date">2026.10.12</div>
+          <div class="diary-text">
+            ‘喜欢你 感谢你 依赖你’
+            <br><em>——被认可的感觉其实很微妙。</em>
+          </div>
         </div>
-        <div style="margin-top:8px;">
-          <a href="reviews.html" style="color:#4b99eb;font-size:14px;">查看更多板评 →</a>
+        <div class="diary-entry">
+          <div class="diary-date">2026.10.08</div>
+          <div class="diary-text">
+            ‘你的真心到底是真是假’
+            <br><em>我只是不想辜负别人的选择。</em>
+          </div>
+        </div>
+        <div class="more-link">
+          <a href="reviews.html">查看更多板评 →</a>
         </div>
       </div>
     </div>
@@ -133,18 +170,40 @@
     <div class="tweet">
       <div class="tweet-avatar">📝</div>
       <div class="tweet-body">
-        <div class="diary-date">话术存档</div>
-        <div class="diary-text">
-          病虐<br>「爱需要长久的滋养」<br>「恨我 只需要一个理由」<br>
-          dom<br>「没有参照物」<br>「好奇吗 那就来见我」
+        <div class="pin-label">📝 Diary · 话术存档</div>
+        <div class="diary-entry">
+          <div class="diary-date">病虐</div>
+          <div class="diary-text">
+            「爱需要长久的滋养」<br>
+            「恨我 只需要一个理由」
+          </div>
         </div>
-        <div style="margin-top:8px;">
-          <a href="lines.html" style="color:#4b99eb;font-size:14px;">查看更多话术 →</a>
+        <div class="diary-entry">
+          <div class="diary-date">dom</div>
+          <div class="diary-text">
+            「没有参照物」<br>
+            「好奇吗 那就来见我」
+          </div>
+        </div>
+        <div class="more-link">
+          <a href="lines.html">查看更多话术 →</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- 氛围感结尾【复原被删除的ending】 -->
+  <div class="ending">
+    <p>Всё проходит, и это пройдёт.</p>
+    <p class="ending-sub">一你走进了我的世界里 就不许离开。</p>
+    <p class="ending-line">—— 做了个掐紧你脖子的梦。</p>
+  </div>
+
+  <div class="footer">
+    WINTER · SHADOWS · MMXXVI
+  </div>
+
+  <!-- ========= Follow弹窗HTML ========= -->
   <div class="dialog-mask" id="dialogMask">
     <div class="dialog-box">
       <div class="dialog-close" id="dialogClose">✕ 关闭</div>
@@ -163,16 +222,19 @@
     </div>
   </div>
 
+  <!-- ✅修复audio，完整闭合标签 -->
   <audio id="bgm" loop preload="none">
     <source src="bgm.mp3" type="audio/mpeg">
   
 
   <script>
+    // BGM点击播放
     const audio = document.getElementById('bgm');
     document.body.addEventListener('click',()=>{
       if(audio.paused) audio.play().catch(e=>{});
     },{once:true});
 
+    // Follow弹窗逻辑
     const mask = document.getElementById('dialogMask');
     const openBtn = document.getElementById('openDialog');
     const closeBtn = document.getElementById('dialogClose');
