@@ -6,80 +6,39 @@
 <title>CLOUD</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* ==========【新增Follow弹窗，只新增，不改动原有样式】 ========== */
-.dialog-mask{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.65);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:999;
-  padding:16px;
+/* 仅新增Follow按钮样式，页面原有全部样式保留 */
+.follow-entry{
+  margin-top:18px;
+  text-align:center;
 }
-.dialog-mask.show{
-  display:flex;
-}
-.dialog-box{
-  background:#171922;
-  border:1px solid #2e3142;
-  border-radius:12px;
-  width:100%;
-  max-width:420px;
-  max-height:70vh;
-  overflow-y:auto;
-  padding:20px;
-  color:#e2e2e4;
-  animation:fadePop 0.28s ease-out;
-}
-@keyframes fadePop{
-  0%{opacity:0;transform:scale(0.94);}
-  100%{opacity:1;transform:scale(1);}
-}
-.dialog-close{
-  text-align:right;
-  color:#89b8f2;
-  cursor:pointer;
-  margin-bottom:12px;
-  font-size:14px;
-}
-.dialog-item{
-  margin-bottom:14px;
-  padding-bottom:14px;
-  border-bottom:1px solid #252836;
-}
-.dialog-name{
-  color:#89b8f2;
-  font-size:14px;
-  margin-bottom:4px;
-}
-.dialog-text{
-  font-size:15px;
-  line-height:1.6;
-}
-.follow-click{
-  color:#ffffff;
-  cursor:pointer;
+.follow-btn{
   display:inline-block;
+  background:#ffffff;
+  color:#0b0c10;
+  font-weight:600;
+  font-size:15px;
+  padding:11px 42px;
+  border-radius:999px;
+  text-decoration:none;
+  transition: all 0.22s ease;
 }
-.normal-text{
-  color:#aaa;
-  cursor:default;
+.follow-btn:hover{
+  background:#e2e6ec;
+  transform: translateY(-2px);
+  box-shadow:0 4px 12px rgba(255,255,255,0.18);
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <!-- 顶部滚动固定导航栏【恢复原版标题】 -->
   <div class="sticky-header">
     <a href="index.html" class="back">←</a>
     <div class="info">
       <h3>CLOUD (Nikolai)</h3>
-      <span>427  posts</span>
+      <span>427 posts</span>
     </div>
   </div>
 
-  <!-- 顶部横幅 【复原被删掉的banner】 -->
   <div class="banner">
     <p class="banner-text">
       所谓爱就意味着虐待和精神上的优势 <br>
@@ -96,34 +55,29 @@
       <h1>Николай (Nikolai)</h1>
       <span class="check">✓</span>
     </div>
-
     <div class="username">@winter_shadows</div>
-
     <p class="bio-text">
       Всё проходит, и это пройдёт.<br>
       我的缪斯 是你哭红的双眼还有温热的怀抱
     </p>
-
     <div class="tags">#Freelance #Survive #Winter</div>
-
     <div class="meta-row">
       <span>📍 Saint Petersburg, Russia</span>
-      <span class="link-text">winter-shadows.net</span>
+      <span class="link-text">winter‑shadows.net</span>
       <span>📅 Joined Sep 2023</span>
     </div>
-
     <div class="follow-count">
       <span><b>1</b> Following</span>
       <span><b>427</b> Followers</span>
     </div>
 
-    <!-- ✅这里：Follow文字，绑定弹窗点击事件，保留原来按钮位置 -->
-    <div class="btn-follow-wrap">
-      <div class="follow-click" id="openDialog">Follow</div>
+    <!-- ✅Follow白色椭圆按钮，无下方UID气泡，跳转 dm.html -->
+    <div class="follow-entry">
+      <a href="dm.html" class="follow-btn">Follow</a>
     </div>
   </div>
 
-  <!-- 推文流区域【完全复原原版推文结构】 -->
+  <!-- 下面所有推文、ending、footer完全原样留给你自己调整排版 -->
   <div class="tweet-feed">
     <div class="tweet">
       <div class="tweet-avatar">❄</div>
@@ -170,7 +124,7 @@
     <div class="tweet">
       <div class="tweet-avatar">📝</div>
       <div class="tweet-body">
-        <div class="pin-label">📝 Diary · 话术存档</div>
+        <div class="pin-label">📖 Diary · 话术存档</div>
         <div class="diary-entry">
           <div class="diary-date">病虐</div>
           <div class="diary-text">
@@ -192,58 +146,22 @@
     </div>
   </div>
 
-  <!-- 氛围感结尾【复原被删除的ending】 -->
   <div class="ending">
     <p>Всё проходит, и это пройдёт.</p>
-    <p class="ending-sub">一你走进了我的世界里 就不许离开。</p>
+    <p class="ending-sub">你走进了我的世界里 就不许离开。</p>
     <p class="ending-line">—— 做了个掐紧你脖子的梦。</p>
   </div>
+  <div class="footer">WINTER · SHADOWS · MMXXVI</div>
 
-  <div class="footer">
-    WINTER · SHADOWS · MMXXVI
-  </div>
-
-  <!-- ========= Follow弹窗HTML ========= -->
-  <div class="dialog-mask" id="dialogMask">
-    <div class="dialog-box">
-      <div class="dialog-close" id="dialogClose">✕ 关闭</div>
-      <div class="dialog-item">
-        <div class="dialog-name">— Nikolai</div>
-        <div class="dialog-text">你走进了我的世界里，就不许离开。</div>
-      </div>
-      <div class="dialog-item">
-        <div class="dialog-name">— Nikolai</div>
-        <div class="dialog-text">做了个掐紧你脖子的梦。</div>
-      </div>
-      <div class="dialog-item">
-        <div class="dialog-name">— Nikolai</div>
-        <div class="dialog-text">所谓爱就意味着虐待和精神上的优势。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ✅修复audio，完整闭合标签 -->
   <audio id="bgm" loop preload="none">
     <source src="bgm.mp3" type="audio/mpeg">
   
 
   <script>
-    // BGM点击播放
     const audio = document.getElementById('bgm');
     document.body.addEventListener('click',()=>{
-      if(audio.paused) audio.play().catch(e=>{});
+      if(audio.paused) audio.play().catch(err=>{});
     },{once:true});
-
-    // Follow弹窗逻辑
-    const mask = document.getElementById('dialogMask');
-    const openBtn = document.getElementById('openDialog');
-    const closeBtn = document.getElementById('dialogClose');
-
-    openBtn.onclick = ()=> mask.classList.add('show');
-    closeBtn.onclick = ()=> mask.classList.remove('show');
-    mask.onclick = e => {
-      if(e.target === mask) mask.classList.remove('show');
-    };
   </script>
 </div>
 </body>
