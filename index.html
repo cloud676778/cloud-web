@@ -3,18 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CLOUD · VERIFIED</title>
+<title>Николай (Nikolai)</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-  <h1 class="main-title">CLOUD</h1>
-  <p class="sub">VERIFIED</p>
-  <p class="slogan">爱要面目全非才好看<br>ARCHIVE · 2026</p>
 
-  <div class="btn-group">
-    <a href="info.html" class="btn">📜 我的资料</a>
+<div class="wrap">
+  <!-- 顶部固定导航栏 -->
+  <div class="sticky-header">
+    <a href="index.html" class="back">←</a>
+    <div class="info">
+      <h3>Николай (Nikolai)</h3>
+      <span>427 条帖子</span>
+    </div>
+  </div>
+
+  <!-- 顶部横幅 -->
+  <div class="banner">
+    <p class="banner-text">
+      眼泪是腐蚀心的酸
+      <span>Tears are the acid that corrodes the heart</span>
+    </p>
+  </div>
+
+  <div class="profile-card">
+    <div class="avatar-wrap">
+      <div class="avatar"></div>
+    </div>
+
+    <div class="name-row">
+      <h1>Николай (Nikolai)</h1>
+      <span class="check">✓</span>
+    </div>
+    <div class="username">@winter_shadows</div>
+
+    <p class="bio-text">
+      Всё проходит, и это пройдёт.<br>
+      大雪掩埋的不仅是脚印，还有那些不必被知晓的过往。
+    </p>
+    <div class="tags">#Freelance #Survive #Winter</div>
+
+    <div class="meta-row">
+      <span>📍 Saint Petersburg, Russia</span>
+      <span class="link-text">winter-shadows.net</span>
+      <span>📅 2019年9月加入</span>
+    </div>
+
+    <div class="follow-count">
+      <span><b>1</b> Following</span>
+      <span><b>427</b> Followers</span>
+    </div>
+
+    <div class="btn-follow-wrap">
+      <a href="bio.html" class="btn-follow">Follow</a>
+    </div>
+
+    <!-- 推文流 -->
+    <div class="tweet-feed">
+      <!-- 置顶推文：营业公告 -->
+      <div class="tweet">
+        <div class="tweet-avatar">❄</div>
+        <div class="tweet-body">
+          <div class="pin-label">📌 置顶｜营业公告</div>
+          <div class="tweet-head">
+            <span class="name">Николай</span>
+            <span class="check">✓</span>
+            <span class="user">@winter_shadows</span>
+            <span class="dot">·</span>
+            <span class="user">长期有效</span>
+          </div>
+          <div class="tweet-text">
+            长期接档｜光遇病恋 / 纯虚 / PDSM角色扮演<br>
+            可试音，不满意可换，拒绝跑单。
+          </div>
+        </div>
+      </div>
+
+      <!-- 日记：板评记录 -->
+      <div class="tweet">
+        <div class="tweet-avatar">📖</div>
+        <div class="tweet-body">
+          <div class="pin-label">📖 日记 · 板评记录</div>
+
+          <div class="diary-entry">
+            <div class="diary-date">2026.10.12</div>
+            <div class="diary-text">
+              今天的老板说，病恋感给得很足，全程没冷场，<br>
+              已经续了三次了。<em>——被人肯定的感觉，居然还不错。</em>
+            </div>
+          </div>
+
+          <div class="diary-entry">
+            <div class="diary-date">2026.10.08</div>
+            <div class="diary-text">
+              老板说我态度好，不敷衍，纯虚本全程在线。<br>
+              <em>其实只是不想辜负别人的信任而已。</em>
+            </div>
+          </div>
+
+          <div class="more-link">
+            查看更多板评 →
+          </div>
+        </div>
+      </div>
+
+      <!-- 日记：话术记录 -->
+      <div class="tweet">
+        <div class="tweet-avatar">📝</div>
+        <div class="tweet-body">
+          <div class="pin-label">📝 日记 · 话术存档</div>
+
+          <div class="diary-entry">
+            <div class="diary-date">开场白 · 常用</div>
+            <div class="diary-text">
+              「姐姐今天怎么有空找我？」<br>
+              「又想我了？还是…只是无聊了？」
+            </div>
+          </div>
+
+          <div class="diary-entry">
+            <div class="diary-date">拉扯时 · 备用</div>
+            <div class="diary-text">
+              「你是不是从来都不怕失去我？」<br>
+              「算了，当我没问。」
+            </div>
+          </div>
+
+          <div class="more-link">
+            查看更多话术 →
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 结尾收尾 -->
+    <div class="ending">
+      <p>Всё проходит, и это пройдёт.</p>
+      <p class="ending-sub">一切都会过去，而这，也终会过去。</p>
+      <p class="ending-line">—— 愿雪落时，有人等你。</p>
+    </div>
+
+    <div class="footer">
+      WINTER · SHADOWS · MMXXVI
+    </div>
   </div>
 </div>
+
+<!-- 背景音乐播放器 -->
+<audio id="bgMusic" loop autoplay>
+  <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+<div class="music-player" onclick="toggleMusic()">
+  <span class="music-icon" id="musicIcon">♪</span>
+  <span class="music-name">Nothing Burns Like The Cold</span>
+</div>
+
+<script>
+function toggleMusic(){
+  var music = document.getElementById('bgMusic');
+  var icon = document.getElementById('musicIcon');
+  if(music.paused){
+    music.play();
+    icon.textContent = '♪';
+  }else{
+    music.pause();
+    icon.textContent = '⏸';
+  }
+}
+</script>
+
 </body>
 </html>
