@@ -1,62 +1,263 @@
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 body{
-  min-height:100vh;
-  background:#0b0b10;
-  color:#e2e2e2;
-  font-family:system-ui,-apple-system,sans-serif;
-  background-image:radial-gradient(circle at 20% 30%,#1a1422 0%,transparent 55%);
-  padding:40px 20px;
+  background:#000;
+  color:#e7e7ef;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.62;
 }
-.container{
-  max-width:480px;
+.wrap{
+  max-width:620px;
   margin:0 auto;
-  text-align:center;
+  background:#07070b;
+  min-height:100vh;
 }
-.main-title{
-  font-size:52px;
-  letter-spacing:12px;
-  font-weight:200;
-  color:#f1f1f3;
+/* 顶部固定导航栏，滚动粘住 */
+.sticky-header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(7,7,11,0.92);
+  backdrop-filter:blur(10px);
+  padding:12px 18px;
+  border-bottom:1px solid #222430;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.sticky-header .back{
+  color:#d2d2e2;
+  text-decoration:none;
+  font-size:19px;
+}
+.sticky-header h3{
+  font-size:16px;
+  font-weight:600;
+}
+.sticky-header span{
+  font-size:13px;
+  color:#9494a8;
+}
+/* 顶部横幅区域 */
+.banner{
+  height:224px;
+  background:#181824;
+  background-image:url("banner.jpg");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-end;
+  padding:18px 22px;
+}
+.banner-text{
+  text-align:right;
+  color:#e2e2ec;
+  font-size:16px;
+}
+.banner-text span{
+  font-size:13px;
+  color:#a0a0b8;
+}
+/* 头像 */
+.profile-card{
+  padding:0 20px 42px;
+}
+.avatar-wrap{
+  margin-top:-54px;
+  margin-bottom:14px;
+}
+.avatar{
+  width:106px;
+  height:106px;
+  border-radius:999px;
+  border:4px solid #07070b;
+  background:#232336;
+  background-image:url("avatar.jpg");
+  background-size:cover;
+  background-position:center;
+}
+.name-row{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.name-row h1{
+  font-size:22px;
+  font-weight:600;
+}
+.check{
+  color:#4b99eb;
+  font-weight:bold;
+}
+.username{
+  color:#88889e;
+  font-size:15px;
+  margin-bottom:14px;
+}
+.bio-text{
+  font-size:15px;
+  margin-bottom:9px;
+}
+.tags{
+  color:#83b7ec;
+  font-size:14px;
+  margin-bottom:16px;
+}
+.meta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  font-size:14px;
+  color:#a2a2b8;
   margin-bottom:12px;
 }
-.sub{
-  font-size:14px;
-  letter-spacing:4px;
-  color:#aaa;
+.follow-count{
+  display:flex;
+  gap:24px;
+  font-size:15px;
+  margin-bottom:20px;
+}
+.btn-follow-wrap{
+  text-align:right;
   margin-bottom:28px;
 }
-.slogan{
-  font-size:15px;
-  color:#b8b8c8;
-  line-height:1.8;
-  margin-bottom:50px;
-}
-.card{
-  border:1px solid #353548;
-  border-radius:14px;
-  padding:28px 22px;
-  background:rgba(255,255,255,0.03);
-  backdrop-filter:blur(6px);
-  line-height:2.1;
-  margin-bottom:45px;
-}
-.btn-group{
-  display:flex;
-  gap:16px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-.btn{
-  display:inline-block;
-  padding:12px 28px;
-  border:1px solid #606082;
-  color:#d8d8e8;
+.btn-follow{
+  background:#ffffff;
+  color:#000;
+  padding:8px 24px;
+  border-radius:999px;
   text-decoration:none;
-  border-radius:30px;
-  letter-spacing:2px;
-  transition:0.3s;
+  font-weight:550;
+  font-size:15px;
 }
-.btn:hover{
-  background:rgba(255,255,255,0.08);
-  border-color:#9494bb;
+.btn-follow:hover{
+  background:#e8e8e8;
+}
+/* 推文日记流 */
+.tweet-feed{
+  border-top:1px solid #242433;
+}
+.tweet{
+  padding:18px 4px;
+  border-bottom:1px solid #242433;
+  display:flex;
+  gap:12px;
+}
+.tweet-avatar{
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  background:#1c1c2b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.tweet-body{
+  flex:1;
+}
+.pin-label{
+  color:#83b7ec;
+  font-size:13px;
+  margin-bottom:4px;
+}
+.tweet-head{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  font-size:15px;
+  margin-bottom:6px;
+}
+.tweet-head .name{
+  font-weight:600;
+}
+.tweet-head .user{
+  color:#9292a8;
+}
+.tweet-head .dot{
+  color:#666;
+}
+.tweet-text{
+  font-size:15px;
+}
+.diary-entry{
+  margin:12px 0;
+}
+.diary-date{
+  color:#83b7ec;
+  font-size:14px;
+  margin-bottom:3px;
+}
+.diary-text{
+  font-size:15px;
+  color:#d4d4e8;
+}
+.diary-text em{
+  color:#9999b8;
+  font-style:italic;
+}
+.more-link{
+  margin-top:12px;
+}
+.more-link a{
+  color:#4b99eb;
+  text-decoration:none;
+  font-size:15px;
+}
+.more-link a:hover{
+  text-decoration:underline;
+}
+/* 结尾与页脚 */
+.ending{
+  margin-top:36px;
+  text-align:center;
+  padding:12px 8px;
+  color:#b0b0cc;
+}
+.ending-sub{
+  font-size:14px;
+  margin:4px 0;
+}
+.ending-line{
+  font-size:14px;
+  margin-top:6px;
+}
+.footer{
+  text-align:center;
+  margin-top:12px;
+  font-size:13px;
+  color:#646480;
+}
+/* 右下角BGM播放器 */
+.music-player{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  background:rgba(22,22,36,0.88);
+  backdrop-filter:blur(8px);
+  border:1px solid #333548;
+  padding:8px 12px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  z-index:9999;
+  cursor:pointer;
+}
+.music-icon{
+  font-size:17px;
+}
+.music-name{
+  font-size:13px;
+  max-width:140px;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+audio{
+  display:none;
 }
