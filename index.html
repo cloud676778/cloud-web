@@ -6,66 +6,54 @@
 <title>CLOUD</title>
 <link rel="stylesheet" href="style.css">
 <style>
+/* 关键：给卡片开启相对定位，作为absolute按钮的锚点，必须写在内部style，防止外部css覆盖 */
 .profile-card {
-  position: relative;
+  position: relative !important;
+  overflow: visible !important;
 }
 
-/* Follow 按钮：悬浮右上角，不影响头像和昵称区 */
+/* Follow按钮：限定在profile‑card卡片内的右上角，和头像顶部对齐 */
 .follow-btn {
-  position: absolute;
-  top: 10px;
+  position: absolute !important;
+  top: 12px;
   right: 16px;
   background: #ffffff;
   color: #0b0c10;
   font-weight: 700;
   font-size: 14px;
-  padding: 9px 22px;
-  border-radius: 999px;
+  padding:9px 22px;
+  border-radius:999px;
   text-decoration: none;
-  z-index: 10;
+  z-index: 20;
   transition: all 0.22s ease;
 }
 .follow-btn:hover {
-  background: #e2e6ec;
+  background:#e2e6ec;
 }
 
-/* 紧凑排版：头像、昵称、ID 间距收回 */
+/* 维持线上现有的紧凑间距，不去改动头像原有偏移数值 */
 .avatar-wrap {
   margin-top: -40px !important;
-  margin-bottom: 4px !important;
+  margin-bottom:4px !important;
 }
-
-/* 头像框空出来，你后面自己填图片 */
 .avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: #111;
-  border: 2px solid #222;
-  overflow: hidden;
-  position: relative;
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:#111;
+  border:2px solid #222;
+  overflow:hidden;
 }
-
-/* 头像占位图：后面你把 img 换成自己的头像文件即可 */
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 .name-row {
-  margin-top: 0 !important;
-  margin-bottom: 1px !important;
+  margin-top:0 !important;
+  margin-bottom:1px !important;
 }
-
 .username {
-  margin-top: 0 !important;
-  margin-bottom: 10px !important;
+  margin-top:0 !important;
+  margin-bottom:10px !important;
 }
-
 .bio-text {
-  margin-top: 6px !important;
+  margin-top:6px !important;
 }
 </style>
 </head>
@@ -87,10 +75,9 @@
   </div>
 
   <div class="profile-card">
-    <!-- 头像区域给你空出来了，后面直接换图片 -->
     <div class="avatar-wrap">
       <div class="avatar">
-        <!-- 例：<img src="avatar.jpg" alt="avatar"> -->
+        <!-- 此处后续填入头像img标签 -->
       </div>
     </div>
 
@@ -100,7 +87,7 @@
     </div>
     <div class="username">@winter_shadows</div>
 
-    <!-- Follow 悬浮右上角 -->
+    <!-- 这个a标签DOM位置保持不动，靠CSS悬浮，不要挪动它在HTML里的顺序 -->
     <a href="dm.html" class="follow-btn">Follow</a>
 
     <p class="bio-text">
@@ -196,7 +183,7 @@
 
   <audio id="bgm" loop preload="none">
     <source src="bgm.mp3" type="audio/mpeg">
-  </audio>
+  
 
   <script>
     const audio = document.getElementById('bgm');
