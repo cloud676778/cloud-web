@@ -6,89 +6,66 @@
 <title>CLOUD</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* 顶部整行：头像靠左，Follow 靠右 */
-.profile-header-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  padding:0 16px;
-  margin-top:14px;
+.profile-card {
+  position: relative;
 }
 
-/* 头像组完全靠左，不被 Follow 影响 */
-.profile-left-block{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
+/* Follow 按钮：悬浮右上角，不影响头像和昵称区 */
+.follow-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  background: #ffffff;
+  color: #0b0c10;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 9px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  z-index: 10;
+  transition: all 0.22s ease;
+}
+.follow-btn:hover {
+  background: #e2e6ec;
 }
 
-/* 头像恢复到左上位置，尺寸和原来一致 */
-.avatar{
-  width:72px;
-  height:72px;
-  border-radius:50%;
-  background:#111;
-  border:2px solid #222;
-  margin-top:-38px;
-  position:relative;
-  z-index:3;
+/* 紧凑排版：头像、昵称、ID 间距收回 */
+.avatar-wrap {
+  margin-top: -40px !important;
+  margin-bottom: 4px !important;
 }
 
-/* 昵称和 ID 也保持在头像下方靠左 */
-.name-row{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  margin-top:10px;
-}
-.name-row h1{
-  font-size:17px;
-  font-weight:700;
-  color:#fff;
-}
-.check{
-  font-size:13px;
-  color:#5ac8fa;
-}
-.username{
-  font-size:13px;
-  color:#888;
-  margin-top:2px;
+/* 头像框空出来，你后面自己填图片 */
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #111;
+  border: 2px solid #222;
+  overflow: hidden;
+  position: relative;
 }
 
-/* Follow 按钮保持在右侧白色气泡位置 */
-.follow-btn{
-  flex-shrink:0;
-  background:#ffffff;
-  color:#0b0c10;
-  font-weight:700;
-  font-size:14px;
-  padding:9px 24px;
-  border-radius:999px;
-  text-decoration:none;
-  transition:all .22s ease;
-  margin-top:4px;
-}
-.follow-btn:hover{
-  background:#e2e6ec;
+/* 头像占位图：后面你把 img 换成自己的头像文件即可 */
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* 下面信息区保持原版间距 */
-.bio-text{
-  padding:0 16px;
-  margin-top:14px;
+.name-row {
+  margin-top: 0 !important;
+  margin-bottom: 1px !important;
 }
-.tags{
-  padding:0 16px;
-  margin-top:10px;
+
+.username {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
 }
-.meta-row{
-  padding:0 16px;
-  margin-top:10px;
-}
-.follow-count{
-  padding:0 16px;
-  margin-top:12px;
+
+.bio-text {
+  margin-top: 6px !important;
 }
 </style>
 </head>
@@ -110,19 +87,21 @@
   </div>
 
   <div class="profile-card">
-    <!-- 头像组靠左，Follow 靠右 -->
-    <div class="profile-header-row">
-      <div class="profile-left-block">
-        <div class="avatar"></div>
-        <div class="name-row">
-          <h1>Николай (Nikolai)</h1>
-          <span class="check">✓</span>
-        </div>
-        <div class="username">@winter_shadows</div>
+    <!-- 头像区域给你空出来了，后面直接换图片 -->
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <!-- 例：<img src="avatar.jpg" alt="avatar"> -->
       </div>
-
-      <a href="dm.html" class="follow-btn">Follow</a>
     </div>
+
+    <div class="name-row">
+      <h1>Николай (Nikolai)</h1>
+      <span class="check">✓</span>
+    </div>
+    <div class="username">@winter_shadows</div>
+
+    <!-- Follow 悬浮右上角 -->
+    <a href="dm.html" class="follow-btn">Follow</a>
 
     <p class="bio-text">
       Всё проходит, и это пройдёт.<br>
