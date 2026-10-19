@@ -6,31 +6,40 @@
 <title>CLOUD</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* 外层大容器：同一水平线；头像整套靠左，Follow靠右 */
+/* 顶部整行：头像靠左，Follow 靠右 */
 .profile-header-row{
   display:flex;
   justify-content:space-between;
   align-items:flex-start;
   padding:0 16px;
-  margin-top:12px;
+  margin-top:14px;
 }
-/* 左边整块【头像+名字+ID】完全保留原来的样子，不被Follow拉扯 */
+
+/* 头像组完全靠左，不被 Follow 影响 */
 .profile-left-block{
-  display:block;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
 }
+
+/* 头像恢复到左上位置，尺寸和原来一致 */
 .avatar{
-  width:64px;
-  height:64px;
+  width:72px;
+  height:72px;
   border-radius:50%;
   background:#111;
   border:2px solid #222;
-  /* 和最初完全一致，没有任何偏移修改 */
+  margin-top:-38px;
+  position:relative;
+  z-index:3;
 }
+
+/* 昵称和 ID 也保持在头像下方靠左 */
 .name-row{
   display:flex;
   align-items:center;
   gap:6px;
-  margin-top:8px;
+  margin-top:10px;
 }
 .name-row h1{
   font-size:17px;
@@ -46,22 +55,25 @@
   color:#888;
   margin-top:2px;
 }
-/* Follow按钮：只单独靠右上角，垂直对齐「头像顶部」，左边整套不动 */
+
+/* Follow 按钮保持在右侧白色气泡位置 */
 .follow-btn{
   flex-shrink:0;
   background:#ffffff;
   color:#0b0c10;
   font-weight:700;
   font-size:14px;
-  padding:9px 22px;
+  padding:9px 24px;
   border-radius:999px;
   text-decoration:none;
   transition:all .22s ease;
-  margin-top:0px;
+  margin-top:4px;
 }
 .follow-btn:hover{
   background:#e2e6ec;
 }
+
+/* 下面信息区保持原版间距 */
 .bio-text{
   padding:0 16px;
   margin-top:14px;
@@ -98,7 +110,7 @@
   </div>
 
   <div class="profile-card">
-    <!-- ✅左边整套【头像+名字+ID】原样保留；仅Follow单独放右边，同一水平面 -->
+    <!-- 头像组靠左，Follow 靠右 -->
     <div class="profile-header-row">
       <div class="profile-left-block">
         <div class="avatar"></div>
@@ -205,7 +217,7 @@
 
   <audio id="bgm" loop preload="none">
     <source src="bgm.mp3" type="audio/mpeg">
-  
+  </audio>
 
   <script>
     const audio = document.getElementById('bgm');
