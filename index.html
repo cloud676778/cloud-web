@@ -6,17 +6,17 @@
 <title>CLOUD</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* 头像 + 昵称 + Follow 同一行 */
-.profile-top-row{
+/* 外层大容器：同一水平线；头像整套靠左，Follow靠右 */
+.profile-header-row{
   display:flex;
-  align-items:center;
-  gap:14px;
+  justify-content:space-between;
+  align-items:flex-start;
   padding:0 16px;
   margin-top:12px;
 }
-
-.avatar-wrap{
-  flex:0 0 auto;
+/* 左边整块【头像+名字+ID】完全保留原来的样子，不被Follow拉扯 */
+.profile-left-block{
+  display:block;
 }
 .avatar{
   width:64px;
@@ -24,44 +24,31 @@
   border-radius:50%;
   background:#111;
   border:2px solid #222;
+  /* 和最初完全一致，没有任何偏移修改 */
 }
-
-.name-follow-row{
-  flex:1 1 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  min-width:0;
-}
-
 .name-row{
   display:flex;
   align-items:center;
   gap:6px;
-  min-width:0;
+  margin-top:8px;
 }
 .name-row h1{
   font-size:17px;
   font-weight:700;
   color:#fff;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 .check{
   font-size:13px;
   color:#5ac8fa;
-  flex:0 0 auto;
 }
 .username{
   font-size:13px;
   color:#888;
   margin-top:2px;
 }
-
+/* Follow按钮：只单独靠右上角，垂直对齐「头像顶部」，左边整套不动 */
 .follow-btn{
-  flex:0 0 auto;
+  flex-shrink:0;
   background:#ffffff;
   color:#0b0c10;
   font-weight:700;
@@ -70,13 +57,11 @@
   border-radius:999px;
   text-decoration:none;
   transition:all .22s ease;
+  margin-top:0px;
 }
 .follow-btn:hover{
   background:#e2e6ec;
-  transform:translateY(-1px);
 }
-
-/* 下面内容保持原来的间距 */
 .bio-text{
   padding:0 16px;
   margin-top:14px;
@@ -113,24 +98,18 @@
   </div>
 
   <div class="profile-card">
-
-    <!-- ✅头像、昵称、Follow 同一行 -->
-    <div class="profile-top-row">
-      <div class="avatar-wrap">
+    <!-- ✅左边整套【头像+名字+ID】原样保留；仅Follow单独放右边，同一水平面 -->
+    <div class="profile-header-row">
+      <div class="profile-left-block">
         <div class="avatar"></div>
-      </div>
-
-      <div class="name-follow-row">
-        <div class="name-col">
-          <div class="name-row">
-            <h1>Николай (Nikolai)</h1>
-            <span class="check">✓</span>
-          </div>
-          <div class="username">@winter_shadows</div>
+        <div class="name-row">
+          <h1>Николай (Nikolai)</h1>
+          <span class="check">✓</span>
         </div>
-
-        <a href="dm.html" class="follow-btn">Follow</a>
+        <div class="username">@winter_shadows</div>
       </div>
+
+      <a href="dm.html" class="follow-btn">Follow</a>
     </div>
 
     <p class="bio-text">
@@ -147,7 +126,6 @@
       <span><b>1</b> Following</span>
       <span><b>427</b> Followers</span>
     </div>
-
   </div>
 
   <div class="tweet-feed">
@@ -227,7 +205,7 @@
 
   <audio id="bgm" loop preload="none">
     <source src="bgm.mp3" type="audio/mpeg">
-  </audio>
+  
 
   <script>
     const audio = document.getElementById('bgm');
