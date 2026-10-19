@@ -6,18 +6,20 @@
 <title>CLOUD</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.follow-entry{
-  margin-top:18px;
-  text-align:right;
-  padding-right:32px;
+/* 昵称+按钮这一整行的新容器 */
+.name-btn-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:12px;
+  margin-right:16px;
 }
 .follow-btn{
-  display:inline-block;
   background:#ffffff;
   color:#0b0c10;
   font-weight:600;
   font-size:15px;
-  padding:11px 42px;
+  padding:10px 38px;
   border-radius:999px;
   text-decoration:none;
   transition: all 0.22s ease;
@@ -51,11 +53,18 @@
       <div class="avatar"></div>
     </div>
 
-    <div class="name-row">
-      <h1>Николай (Nikolai)</h1>
-      <span class="check">✓</span>
+    <!-- ✅昵称和Follow放在同一行 -->
+    <div class="name-btn-row">
+      <div class="name-col">
+        <div class="name-row">
+          <h1>Николай (Nikolai)</h1>
+          <span class="check">✓</span>
+        </div>
+        <div class="username">@winter_shadows</div>
+      </div>
+      <a href="dm.html" class="follow-btn">Follow</a>
     </div>
-    <div class="username">@winter_shadows</div>
+
     <p class="bio-text">
       Всё проходит, и это пройдёт.<br>
       我的缪斯 是你哭红的双眼还有温热的怀抱
@@ -71,10 +80,6 @@
       <span><b>427</b> Followers</span>
     </div>
 
-    <!-- Follow按钮：已经调到你圈出的靠右位置，跳转 dm.html -->
-    <div class="follow-entry">
-      <a href="dm.html" class="follow-btn">Follow</a>
-    </div>
   </div>
 
   <div class="tweet-feed">
