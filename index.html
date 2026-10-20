@@ -6,17 +6,21 @@
 <title>CLOUD</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* 关键：给卡片开启相对定位，作为absolute按钮的锚点，必须写在内部style，防止外部css覆盖 */
-.profile-card {
-  position: relative !important;
-  overflow: visible !important;
+/* 名字+ID+Follow 放在同一flex行，实现平行对齐 */
+.name-header-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding-right:16px;
+}
+.name-left-group {
+  display:flex;
+  flex-direction:column;
 }
 
-/* Follow按钮：限定在profile‑card卡片内的右上角，和头像顶部对齐 */
 .follow-btn {
-  position: absolute !important;
-  top: 12px;
-  right: 16px;
+  flex-shrink:0;
   background: #ffffff;
   color: #0b0c10;
   font-weight: 700;
@@ -24,14 +28,13 @@
   padding:9px 22px;
   border-radius:999px;
   text-decoration: none;
-  z-index: 20;
   transition: all 0.22s ease;
 }
 .follow-btn:hover {
   background:#e2e6ec;
 }
 
-/* 维持线上现有的紧凑间距，不去改动头像原有偏移数值 */
+/* 头像保持你线上原本紧凑的参数，一点不改 */
 .avatar-wrap {
   margin-top: -40px !important;
   margin-bottom:4px !important;
@@ -77,18 +80,21 @@
   <div class="profile-card">
     <div class="avatar-wrap">
       <div class="avatar">
-        <!-- 此处后续填入头像img标签 -->
+        <!-- 后续填入头像 <img src="xxx.jpg"> -->
       </div>
     </div>
 
-    <div class="name-row">
-      <h1>Николай (Nikolai)</h1>
-      <span class="check">✓</span>
+    <!-- ✅重点：名字ID和Follow放到同一行flex，天然平行对齐 -->
+    <div class="name-header-row">
+      <div class="name-left-group">
+        <div class="name-row">
+          <h1>Николай (Nikolai)</h1>
+          <span class="check">✓</span>
+        </div>
+        <div class="username">@winter_shadows</div>
+      </div>
+      <a href="dm.html" class="follow-btn">Follow</a>
     </div>
-    <div class="username">@winter_shadows</div>
-
-    <!-- 这个a标签DOM位置保持不动，靠CSS悬浮，不要挪动它在HTML里的顺序 -->
-    <a href="dm.html" class="follow-btn">Follow</a>
 
     <p class="bio-text">
       Всё проходит, и это пройдёт.<br>
@@ -177,7 +183,7 @@
   <div class="ending">
     <p>Всё проходит, и это пройдёт.</p>
     <p class="ending-sub">你走进了我的世界里 就不许离开。</p>
-    <p class="ending-line">—— 做了个掐紧你脖子的梦。</p>
+    <p class="ending-line">—— 做了个掐紧你脖子的梦。——</p>
   </div>
   <div class="footer">WINTER · SHADOWS · MMXXVI</div>
 
